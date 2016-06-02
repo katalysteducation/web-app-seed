@@ -1,0 +1,24 @@
+{
+  "name": "web-app-seed",
+  "version": "0.0.1",
+  "description": "Basic project setup including Bootstrap framework and Grunt tasks for compiling Less and CoffeeScript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wojciech Ludwin for Katalyst Education",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-less": "^1.3.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-processhtml": "^0.3.13",
+    "jquery": "^2.2.4"
+  }
+}
