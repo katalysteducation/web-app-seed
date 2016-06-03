@@ -26,6 +26,14 @@ module.exports = (grunt) ->
       dev:
         expand: true
         cwd: 'src'
+        src: [
+          'images/**'
+          'index.html'
+        ]
+        dest: 'dist/'
+      dist:
+        expand: true
+        cwd: 'src'
         src: ['images/**']
         dest: 'dist/'
 
@@ -96,4 +104,4 @@ module.exports = (grunt) ->
   grunt.registerTask('default', ['copy:dev', 'coffee', 'less:build', 'watch']);
 
   # Build task
-  grunt.registerTask 'build', ['copy', 'coffee', 'less:build', 'concat:build', 'uglify', 'processhtml:dist', 'clean']
+  grunt.registerTask 'build', ['copy:dist', 'coffee', 'less:build', 'concat:build', 'uglify', 'processhtml:dist', 'clean']
