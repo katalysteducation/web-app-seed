@@ -14,7 +14,7 @@ module.exports = (grunt) ->
 
     meta:
       version: '0.0.1',
-      banner: '/*!\n * Katalyst Education - Playground - v<%= meta.version %> - ' +
+      banner: '/*!\n * Katalyst Education - web-app-seed - v<%= meta.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         ' * http://katalysteducation.org/\n' +
         ' * Copyright (c) <%= grunt.template.today("yyyy") %>\n */\n'

@@ -8,7 +8,7 @@ It is a basic folder structure with for developing simple web-apps with use of:
 - LiveReload for Chrome [here](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) or for Firefox [here](https://addons.mozilla.org/pl/firefox/addon/livereload/)
 
 ### Instalation
-    $ cd path/where/you/want/playground/to/be/
+    $ cd path/where/you/want/web-app-seed/to/be/
     $ git clone https://github.com/katalysteducation/web-app-seed.git
     $ npm install
 
