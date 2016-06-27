@@ -20,13 +20,17 @@ module.exports = (grunt) ->
         ' * Copyright (c) <%= grunt.template.today("yyyy") %>\n */\n'
 
     clean:
-      js: ['dist/scripts/*.js', '!dist/scripts/main.js']
+      dev: 'dist/scripts/main.coffee'
+      dist: ['dist/scripts/*.js', '!dist/scripts/main.js']
 
+    # Copy required assets and catalogs.
     copy:
       dev:
         expand: true
         cwd: 'src'
         src: [
+          'templates/**'
+          'locales/**'
           'images/**'
           'index.html'
         ]
@@ -34,17 +38,35 @@ module.exports = (grunt) ->
       dist:
         expand: true
         cwd: 'src'
-        src: ['images/**']
+        src: [
+          'templates/**'
+          'locales/**'
+          'images/**'
+        ]
         dest: 'dist/'
+
+    # Concatenate CoffeScript/JavaScript files.
+    concat:
+      dev:
+        src:  'src/scripts/*.coffee'
+        dest: 'dist/scripts/main.coffee'
+
+      build:
+        options:
+          banner: '<%= meta.banner %>'
+        src:  [
+          'node_modules/jquery/dist/jquery.min.js'
+          'node_modules/bootstrap/dist/js/bootstrap.min.js'
+          'dist/scripts/**/*.js'
+        ]
+        dest: 'dist/scripts/main.js'
 
     coffee:
       compile:
-        expand: true
-        flatten: true
-        cwd: "#{__dirname}/src/scripts/"
-        src: ['*.coffee']
-        dest: 'dist/scripts/'
-        ext: '.js'
+        options:
+          join: true
+        files:
+          'dist/scripts/main.js': ['src/scripts/*.coffee']
 
     less:
       build:
@@ -65,25 +87,13 @@ module.exports = (grunt) ->
       options:
         livereload:true
 
-      # Copy Vendor CSS
-      # css:
-      #   files: ['src/vendor/css/**/*.css']
-      #   tasks: 'copy:build'
-
       img:
         files: ['src/images/**/*']
         tasks: 'copy:build'
 
-    concat:
-      build:
-        options:
-          banner: '<%= meta.banner %>'
-        src:  [
-          'dist/scripts/**/*.js'
-          'node_modules/jquery/dist/jquery.min.js'
-          'node_modules/bootstrap/dist/js/bootstrap.min.js'
-        ]
-        dest: 'dist/scripts/main.js'
+      assets:
+        files: ['src/index.html','src/templates/*.hbs','src/locales/*.ftl']
+        tasks: 'copy:dev'
 
     uglify:
       app:
@@ -101,7 +111,21 @@ module.exports = (grunt) ->
           'dist/index.html': ['src/index.html']
 
   # Default task.
-  grunt.registerTask('default', ['copy:dev', 'coffee', 'less:build', 'watch']);
+  grunt.registerTask('default', [
+    'copy:dev'
+    'coffee'
+    'less:build'
+    'watch'
+  ]);
 
   # Build task
-  grunt.registerTask 'build', ['copy:dist', 'coffee', 'less:build', 'concat:build', 'uglify', 'processhtml:dist', 'clean']
+  # grunt.registerTask 'build', [
+  #   'copy:dist'
+  #   'concat:dev'
+  #   'coffee'
+  #   'less:build'
+  #   'concat:build'
+  #   'uglify'
+  #   'processhtml:dist'
+  #   'clean:dist'
+  # ]

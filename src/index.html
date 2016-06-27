@@ -4,26 +4,40 @@
   <meta charset="UTF-8">
   <title>Document Name</title>
 
+  <!-- Localization section -->
+  <meta name="defaultLanguage" content="en-US">
+  <meta name="availableLanguages" content="en-US, pl">
+  <link rel="localization" href="locales/{locale}.ftl">
+
   <!-- build:remove:dist -->
     <!-- Import Livereload script, to reload browser when the files are changed -->
     <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+
     <!-- Import jQuery for bootsrtap -->
     <script src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+
     <!-- Import Bootsrtap JS -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" charset="utf-8" async></script>
+
+    <!-- Import Handlebars template engine -->
+    <script src="../node_modules/handlebars/dist/handlebars.min.js" charset="utf-8"></script>
+
+    <!-- Import L20n for internatinalization -->
+    <!-- <script defer src="../node_modules/l20n/dist/compat/web/l20n.js"></script> -->
+    <script defer src="http://wludwin.linuxpl.info/cdn/l20n.js"></script>
   <!-- /build -->
 
   <!-- Import Custom Stylesheet -->
   <link rel="stylesheet" href="styles/main.css" charset="utf-8">
+
 </head>
 <body>
-
 <!-- Conntent for the website HERE -->
-<h1 id="header">Katalyst Education Scaffold</h1>
-<img src="images/KEL.png" alt="Katalyst Education Logo" />
-<hr>
+<h1 id="header" data-l10n-id="header">Katalyst Education Starter App</h1>
 
-<button id="helloBtn" class="custom-button">Click me!</button>
+<section id="content">
+  <!-- Handlebars content goes here -->
+</section>
 
 <!-- Import Main Script File -->
 <script src="scripts/main.js" charset="utf-8"></script>

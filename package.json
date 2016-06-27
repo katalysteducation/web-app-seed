@@ -1,7 +1,7 @@
 {
   "name": "web-app-seed",
-  "version": "0.0.1",
-  "description": "Basic project setup including Bootstrap framework and Grunt tasks for compiling Less and CoffeeScript",
+  "version": "0.0.2",
+  "description": "Project scaffold for building web app with: Bootstrap, Less, CoffeeScript, Handlebars nad localization using l20n",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,8 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-processhtml": "^0.3.13",
-    "jquery": "^2.2.4"
+    "handlebars": "^4.0.5",
+    "jquery": "^2.2.4",
+    "l20n": "^3.5.1"
   }
 }
