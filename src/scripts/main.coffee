@@ -7,14 +7,13 @@ window.onload = () ->
   # Get references to the DOM elements.
   content = document.getElementById('content')
 
-  # Function called after templates is loaded.
-  templateLoaded = ->
+  # Function called after templates are loaded and when the button text is fetch from LTF files.
+  onAllDataLoaded = (buttonsContent) ->
+
     # Add Content to the page from Handlebars template. TemplateManager is template helper located in _tm.coffee file.
     content.innerHTML = TemplateManager.compile "main", {
-      # FIXME: What we realy wan here is to load default values from FTL file. So They cn be change by translator not a developer.
-      # For now the document.l10n.formatValue method is not avilable.
-      addButtonText : 'Click me!'
-      clearButtonText : 'Clear counter'
+      addButtonText : buttonsContent[0]
+      clearButtonText : buttonsContent[1]
     }
 
     # Get required DOM elements.
@@ -41,4 +40,6 @@ window.onload = () ->
     document.l10n.setAttributes(prompter, 'prompt', {counter : counter})
 
   # load templates `main.hbs` template under `main` name.
-  TemplateManager.loadTemplate "main", "templates/main.hbs", templateLoaded
+  TemplateManager.loadTemplate "main", "templates/main.hbs", () ->
+    # Get default data from LTF files.
+    document.l10n.get('main').formatValues('addButtonText', 'clearButtonText').then onAllDataLoaded
