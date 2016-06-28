@@ -13,8 +13,8 @@ module.exports = (grunt) ->
   grunt.initConfig
 
     meta:
-      version: '0.0.1',
-      banner: '/*!\n * Katalyst Education - web-app-seed - v<%= meta.version %> - ' +
+      version: '0.1.3',
+      banner: '/*!\n * Katalyst Education - Web-App-Seed - v<%= meta.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         ' * http://katalysteducation.org/\n' +
         ' * Copyright (c) <%= grunt.template.today("yyyy") %>\n */\n'
@@ -55,8 +55,15 @@ module.exports = (grunt) ->
         options:
           banner: '<%= meta.banner %>'
         src:  [
+          # Get jQuery.
           'node_modules/jquery/dist/jquery.min.js'
+          # Get Bootstrap.
           'node_modules/bootstrap/dist/js/bootstrap.min.js'
+          # Get Handlebars.
+          'node_modules/handlebars/dist/handlebars.min.js'
+          # Get L20n.
+          #'node_modules/l20n/dist/compat/web/l20n.min.js'
+          # Get JS files.
           'dist/scripts/**/*.js'
         ]
         dest: 'dist/scripts/main.js'
@@ -119,13 +126,12 @@ module.exports = (grunt) ->
   ]);
 
   # Build task
-  # grunt.registerTask 'build', [
-  #   'copy:dist'
-  #   'concat:dev'
-  #   'coffee'
-  #   'less:build'
-  #   'concat:build'
-  #   'uglify'
-  #   'processhtml:dist'
-  #   'clean:dist'
-  # ]
+  grunt.registerTask 'build', [
+    'copy:dist'
+    'coffee'
+    'less:build'
+    'concat:build'
+    'uglify'
+    'processhtml:dist'
+    'clean:dist'
+  ]

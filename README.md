@@ -24,5 +24,5 @@ To enable livereload in your browser:
  5. Open browser and navigate to url: `http://localhost/url/to/web-app-seed/dist`
  6. Whenever you make changes in coffeescript or less files it will reload your browser and show you updated version.
 
-##### Building (to be fixed...)
-~~To get minified version type in your terminal the command: `grunt build`. This task will concatenate and minify all JS and CSS files. Also it will remove dependencies from your `index.html` file.~~
+##### Building 
+To get minified version type in your terminal the command: `grunt build`. This task will concatenate and minify all JS and CSS files. Also it will remove dependencies from your `index.html` file.

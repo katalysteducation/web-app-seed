@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <title>Document Name</title>
@@ -24,8 +24,14 @@
 
     <!-- Import L20n for internatinalization -->
     <!-- <script defer src="../node_modules/l20n/dist/compat/web/l20n.js"></script> -->
-    <script defer src="http://wludwin.linuxpl.info/cdn/l20n.js"></script>
   <!-- /build -->
+
+  <!--
+    FIXME: Hack for L20n verion 4.0.0.
+    By default it should be located in node_modules.
+    This need to be changed when version 4.0.0 will be avilable in bower repository.
+  -->
+  <script defer src="http://wludwin.linuxpl.info/cdn/l20n.js"></script>
 
   <!-- Import Custom Stylesheet -->
   <link rel="stylesheet" href="styles/main.css" charset="utf-8">
